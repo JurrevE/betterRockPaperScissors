@@ -1,16 +1,38 @@
-//Kies hier wat je wilt gebruiken!
-let spelersKeuze = window.prompt("Choose: Rock, Paper or Scissors!");
+//Query selectors to use buttons and play a single round of the game.
+const rockBtn = document.querySelector(".rockbutton");
+rockBtn.addEventListener("click", (event) => {
+    let playerSelection = event.target.value
+    
+    console.log(playSingleRound(getComputerChoice(), playerSelection))
+    console.log(playerScore, computerScore, ties)
+    
+})
+
+const paperBtn = document.querySelector(".paperbutton");
+paperBtn.addEventListener("click", (event) => {
+    let playerSelection = event.target.value
+    
+    console.log(playSingleRound(getComputerChoice(), playerSelection))
+    console.log(playerScore, computerScore, ties)
+    
+})
+
+const scissorsBtn = document.querySelector(".scissorsbutton");
+scissorsBtn.addEventListener("click", (event) => {
+    let playerSelection = event.target.value
+    
+    console.log(playSingleRound(getComputerChoice(), playerSelection))
+    console.log(playerScore, computerScore, ties)
+
+})
 
 
-
-
-
-
+       
 let playerScore = 0
 let computerScore = 0
 let ties = 0
-let playerSelection = spelersKeuze.toLowerCase();
 
+//computer choice, working properly
 let getComputerChoice = function() {
   let keuze = Math.floor(Math.random() * 3 )
   if (keuze === 0) {
@@ -23,10 +45,12 @@ let getComputerChoice = function() {
     return "scissors"
    }
 }
-
+//game logic, working properly
 function checkWinner(getComputerChoice, playerSelection) {
     if (getComputerChoice === playerSelection) {
         ties++
+        const winmessage = document.querySelector(".winmessage")
+        winmessage.innerHTML = "This round was a tie!"
         return "its a tie!"
     }
     else if( 
@@ -35,15 +59,36 @@ function checkWinner(getComputerChoice, playerSelection) {
         (playerSelection == "scissors" && getComputerChoice == "paper"))
         {
             playerScore++
-        return "Player wins this round!"
+            const playerwinsnummer = document.querySelector(".playerwinsnummer")
+            playerwinsnummer.innerHTML ++
+            
+            const winmessage = document.querySelector(".winmessage")
+            winmessage.innerHTML = "Player wins this round!"
+            //Line under here for console
+            if (playerScore == 5) {
+                const totalwinner = document.querySelector(".ikbendegoat")
+                 totalwinner.innerHTML = "Player was the first to reach 5 and wins!"
+              }
+            
     }
     
     else {
             computerScore++
-        return "Computer wins this round!"
+            const computerwinsnummer = document.querySelector(".computerwinsnummer")
+            computerwinsnummer.innerHTML ++
+            
+            const winmessage = document.querySelector(".winmessage")
+            winmessage.innerHTML = "Computer wins this round!"
+            //Line under here for console
+            if ( computerScore == 5) {
+                const totalwinner = document.querySelector(".ikbendegoat")
+                 totalwinner.innerHTML = "Computer was the first to reach 5 and wins!"
+                
+            }
+            return "Computer wins this round!"
     }
 }
-
+//working function to play 1 single round
 function playSingleRound(playerSelection, getComputerChoice) {
     const result = checkWinner(playerSelection, getComputerChoice);
     if (result == "its a tie!") {
@@ -57,20 +102,8 @@ function playSingleRound(playerSelection, getComputerChoice) {
     }
 }
 
-let game = function(playSingleRound) {
-    for (let i = 0; i < 5; i++) {
-        console.log(playSingleRound(getComputerChoice(), playerSelection))
-        console.log(`Times player has won: ${playerScore} Times computer has won: ${computerScore} and the amount of ties: ${ties}`)
-       
-    }
-    console.log("Game over!")
-     if (playerScore > computerScore) {
-        console.log("Player was the winner!");
-    } else if (playerScore < computerScore) {
-        console.log("Computer was the winner!");
-    } else {
-        console.log("We have a tie!");
-    }
-}
+
+
+    
+        
  
-game(playSingleRound)

@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #aaf0d1;
+}
+.h2class {
+    display: flex;
+    justify-content: center;
+}
+header  {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: 200px;
+}
+.wins {
+    height: 250px;
+    display: flex;
+    margin: 0px 300px 0px 300px;
+    justify-content: space-around;
+    align-items: center;
+}
+.teller {
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+#knoppen {
+    display: flex;
+    justify-content: center;
+
+}
+
+button {
+    border-radius: 15%;
+    color: black;
+    background-color: lightblue;
+    height: 80px;
+    width: 100px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px;
+}
+button:active {
+    background: #20C073;
+    -webkit-box-shadow: inset 0px 0px 5px #20C073;
+       -moz-box-shadow: inset 0px 0px 5px #20C073;
+            box-shadow: inset 0px 0px 5px #20C073;
+     outline: none;
+  }
+.roundresults { 
+    font-size: large;
+    margin: 0px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.resultsbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+    border: solid 3px black;
+}
+
+.playerwins {
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.playerwinsdoos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 250px;
+    border: solid 3px black;
+}
+
+.computerwins {
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.computerwinsdoos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 250px;
+    border: solid 3px black
+}
